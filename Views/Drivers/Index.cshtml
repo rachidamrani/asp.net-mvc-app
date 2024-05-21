@@ -1,0 +1,39 @@
+﻿@model List<Driver>
+
+
+@if (Model.Count == 0)
+{
+    <div class="alert alert-info" role="alert">Driver's list is empty</div>
+    <a asp-controller="Drivers" asp-action="Create" class="btn btn-primary">Create new driver</a>
+}
+else
+{
+<h1>Drivers :</h1>
+
+<table class="table table-striped text-center my-5">
+    <thead class="thead-dark">
+    <tr>
+        <th>#</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Update Driver</th>
+        <th>Delete Driver</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach(Driver driver in Model){
+        <tr>
+            <td>@driver.Id</td>
+            <td>@driver.FirstName</td>
+            <td>@driver.LastName</td>
+            <td>@driver.Email</td>
+            <td><a class="btn btn-sm btn-success" asp-action="Update" asp-route-id="@driver.Id">Update</a></td>
+            <td><a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@driver.Id">Delete</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+<a asp-controller="Drivers" asp-action="Create" class="btn btn-primary">Create new driver</a>
+}

@@ -1,0 +1,29 @@
+﻿@model Driver
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-warning">@TempData["message"]</div>
+}
+
+<h1> Update a driver </h1>
+
+
+<form asp-action="Update" method="post" class="w-25">
+    <input type="hidden" asp-for="Id"/>
+    <div class="form-group mb-3">
+        <label class="mb-1" for="FirstName">First name :</label>
+        <input type="text" asp-for="FirstName" class="form-control"/>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label class="mb-1" for="LastName">Last name : </label>
+        <input type="text" asp-for="LastName" class="form-control"/>
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label class="mb-1" for="Email">Email : </label>
+        <input type="email" asp-for="Email" class="form-control"/>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <button class="btn btn-primary" type="submit">Update</button>
+</form>
